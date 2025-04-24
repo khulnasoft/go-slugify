@@ -2,12 +2,14 @@ package slugify
 
 import "testing"
 
+var testSlugifier = NewSlugifier()
+
 func benchmarkSlugify(b *testing.B, s string) {
 	b.StopTimer()
 	b.StartTimer()
 
 	for i := 0; i < b.N; i++ {
-		Slugify(s)
+		testSlugifier.Slugify(s)
 	}
 }
 

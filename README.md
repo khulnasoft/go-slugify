@@ -1,25 +1,21 @@
 go-slugify
 ==============
 
-[![Build Status](https://travis-ci.org/mozillazg/go-slugify.svg?branch=master)](https://travis-ci.org/mozillazg/go-slugify)
-[![Coverage Status](https://coveralls.io/repos/mozillazg/go-slugify/badge.svg?branch=master)](https://coveralls.io/r/mozillazg/go-slugify?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/mozillazg/go-slugify)](https://goreportcard.com/report/github.com/mozillazg/go-slugify)
-[![GoDoc](https://godoc.org/github.com/mozillazg/go-slugify?status.svg)](https://godoc.org/github.com/mozillazg/go-slugify)
+[![Go Report Card](https://goreportcard.com/badge/github.com/khulnasoft/go-slugify)](https://goreportcard.com/report/github.com/khulnasoft/go-slugify)
 
-Make Pretty Slug.
-
+Make Pretty Slugs.
 
 Installation
 ------------
 
 ```
-go get -u github.com/mozillazg/go-slugify
+go get -u github.com/khulnasoft/go-slugify
 ```
 
 Install CLI tool:
 
 ```
-go get -u github.com/mozillazg/go-slugify/slugify
+go get -u github.com/khulnasoft/go-slugify/slugify
 $ slugify "北京kožušček,abc"
 bei-jing-kozuscek-abc
 ```
@@ -29,7 +25,7 @@ Documentation
 --------------
 
 API documentation can be found here:
-https://godoc.org/github.com/mozillazg/go-slugify
+https://godoc.org/github.com/khulnasoft/go-slugify
 
 
 Usage
@@ -40,12 +36,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/mozillazg/go-slugify"
+	"github.com/khulnasoft/go-slugify"
 )
 
 func main() {
+	slugifier := (&slugify.Slugifier{}).ToLower(false).InvalidChar("-").WordSeparator("-")
 	s := "北京kožušček,abc"
-	fmt.Println(slugify.Slugify(s))
+	fmt.Println(slugifier.Slugify(s))
 	// Output: bei-jing-kozuscek-abc
 }
 ```

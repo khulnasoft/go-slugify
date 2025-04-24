@@ -1,6 +1,7 @@
 // Package slugify implements Make Pretty Slug
 //
-// 	s := "北京kožušček,abc"
-// 	fmt.Println(slugify.Slugify(s))
-// 	// Output: bei-jing-kozuscek-abc
+//	slugifier := (&slugify.Slugifier{}).ToLower(false).InvalidChar("-").WordSeparator("-")
+//	s := "北京kožušček,abc"
+//	fmt.Println(slugifier.Slugify(s))
+//	// Output: bei-jing-kozuscek-abc
 package slugify

@@ -7,8 +7,8 @@ import (
 	"os"
 	"strings"
 
+	"github.com/khulnasoft/go-slugify"
 	"github.com/mattn/go-isatty"
-	"github.com/mozillazg/go-slugify"
 )
 
 func main() {
@@ -35,6 +35,7 @@ func main() {
 	}
 
 	s := strings.Join(textSlice, " ")
-	ret := slugify.Slugify(s)
+	slugifier := slugify.NewSlugifier()
+	ret := slugifier.Slugify(s)
 	fmt.Println(ret)
 }
